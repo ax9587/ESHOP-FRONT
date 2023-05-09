@@ -1,1 +1,4 @@
-npm i --legacy-peer-deps
+1. npm i --legacy-peer-deps
+2. Vercel
+   1-vercel.json
+   2-
