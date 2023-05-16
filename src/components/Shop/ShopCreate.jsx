@@ -17,6 +17,7 @@ const ShopCreate = () => {
   const [avatar,setAvatar] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
+  const [image,setImage] = useState();
      
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,8 +50,24 @@ const ShopCreate = () => {
       });
   };
 
-  const handleFileInputChange = (e) => {
+  function convertToBase64(file){
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
+
+  const handleFileInputChange =async (e) => {
     const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    console.log(base64);
+    setImage(base64);
     setAvatar(file);
   };
 
