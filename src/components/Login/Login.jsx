@@ -15,6 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    axios.defaults.withCredentials = true;
     await axios
       .post(
         `${server}/user/login-user`,
