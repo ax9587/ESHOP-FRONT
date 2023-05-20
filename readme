@@ -7,3 +7,5 @@
 5. Register as a seller Page
    Change - Upload file to base64
    ShopCreate.jsx
+   6.React JWT Authentication (without Redux) example
+   https://www.bezkoder.com/react-jwt-auth/
