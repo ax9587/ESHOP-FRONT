@@ -90,7 +90,8 @@ export const getAllProducts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "getAllProductsFailed",
-      payload: error.response.data.message,
+      //payload: error.response.data.message,
+      payload: error,
     });
   }
 };
