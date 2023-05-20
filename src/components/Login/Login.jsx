@@ -32,7 +32,7 @@ const Login = () => {
       })
       .catch((err) => {
         //toast.error(err.response.data.message);
-        toast.error(err.response.data.message);
+        toast.error(err);
       });
   };
 
