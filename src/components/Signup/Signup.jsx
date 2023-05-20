@@ -14,30 +14,37 @@ const Singup = () => {
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
 
-  const handleFileInputChange = (e) => {
+  const handleFileInputChange =async  (e) => {
     const file = e.target.files[0];
-    setAvatar(file);
+    const base64 = await convertToBase64(file);
+    //console.log(base64);
+    setAvatar(base64);
   };
+
+  function convertToBase64(file){
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    /* const config = { headers: { "Content-Type": "multipart/form-data" } };
-
-    const newForm = new FormData();
-
-    newForm.append("file", avatar);
-    newForm.append("name", name);
-    newForm.append("email", email);
-    newForm.append("password", password); */
 
     const user = {
       name: name,
       email: email,
       password: password,
+      avatar: avatar
     };
 
     axios
-      //.post(`${server}/user/create-user`, newForm, config)
       .post(`${server}/user/create-user`, user)
       .then((res) => {
         toast.success(res.data.message);
@@ -143,7 +150,7 @@ const Singup = () => {
                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                   {avatar ? (
                     <img
-                      src={URL.createObjectURL(avatar)}
+                      src={avatar}
                       alt="avatar"
                       className="h-full w-full object-cover rounded-full"
                     />

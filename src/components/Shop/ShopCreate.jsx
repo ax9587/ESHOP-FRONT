@@ -66,7 +66,7 @@ const ShopCreate = () => {
   const handleFileInputChange =async (e) => {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
-    console.log(base64);
+    //console.log(base64);
     setImage(base64);
     setAvatar(file);
   };
