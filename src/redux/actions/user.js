@@ -7,6 +7,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: "LoadUserRequest",
     });
+    axios.defaults.withCredentials = true;
     const { data } = await axios.get(`${server}/user/getuser`, {
       withCredentials: true,
     });
