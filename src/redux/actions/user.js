@@ -8,13 +8,13 @@ export const loadUser = () => async (dispatch) => {
       type: "LoadUserRequest",
     });
     axios.defaults.withCredentials = true;
-    /* const { data } = await axios.get(`${server}/user/getuser`, {
-      withCredentials: true,
-    }); */
-    const { data } = await fetch(`${server}/user/getuser`, {
+    const { data } = await axios.get(`${server}/user/getuser`, {
+      withCredentials: true
+    });
+    /* const { data } = await fetch(`${server}/user/getuser`, {
       credentials: 'include',
       method: 'get',
-    });
+    }); */
     dispatch({
       type: "LoadUserSuccess",
       payload: data.user,
