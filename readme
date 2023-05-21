@@ -19,3 +19,5 @@ https://www.bezkoder.com/react-jwt-auth/
 https://www.bezkoder.com/react-redux-jwt-auth/
 8.Add google oAuth
 https://codevoweb.com/google-oauth-authentication-react-and-node/
+
+9. "axios": "^1.4.0",<- "axios": "^1.3.4",
