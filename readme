@@ -7,5 +7,15 @@
 5. Register as a seller Page
    Change - Upload file to base64
    ShopCreate.jsx
-   6.React JWT Authentication (without Redux) example
-   https://www.bezkoder.com/react-jwt-auth/
+
+6.React JWT Authentication (without Redux) example
+https://www.bezkoder.com/react-jwt-auth/
+
+1-AuthService : login-> save to storage
+2-AuthHeader : get from storage
+3.Call Api attach autherHeader
+4.Backend Reade Req,Headers ->get token
+7.React Redux: Token Authentication example with JWT & Axios
+https://www.bezkoder.com/react-redux-jwt-auth/
+8.Add google oAuth
+https://codevoweb.com/google-oauth-authentication-react-and-node/
