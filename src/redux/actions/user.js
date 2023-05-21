@@ -10,6 +10,8 @@ export const loadUser = () => async (dispatch) => {
     axios.defaults.withCredentials = true;
     const { data } = await axios.get(`${server}/user/getuser`, {
       withCredentials: true
+    },{
+      Cookie: 'user_token=xvalue'
     });
     /* const { data } = await fetch(`${server}/user/getuser`, {
       credentials: 'include',
