@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
 import { categoriesData, productData } from "../../static/data";
@@ -18,6 +18,9 @@ import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
 import logo from './logo.png'; // Tell webpack this JS file uses this image
+import { getImageRequest } from "../../requestMethods";
+import axios from "axios";
+import { server } from "../../server";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -32,6 +35,23 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
+ 
+  const [image, setImage] = useState(null);
+
+
+  useEffect(() => {
+    //Runs on the first render
+    //And any time any dependency value changes
+   
+    if(user){
+    axios.get(`${server}/image/get-image-content/${user.user.avatar}`).then((res) => {
+      setImage(res.data);
+     
+     }).catch((error) => {
+       console.log(error);
+     })
+    }
+  }, [user]);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
@@ -174,7 +194,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={`${backend_url}${user.avatar}`}
+                      src={image}
                       className="w-[35px] h-[35px] rounded-full"
                       alt=""
                     />
@@ -216,7 +236,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+                src={logo}
                 alt=""
                 className="mt-3 cursor-pointer"
               />
@@ -230,6 +250,34 @@ const Header = ({ activeHeading }) => {
               </span>
             </div>
           </div>
+          <div className="relative mr-[20px]">
+                {isAuthenticated ? (
+                  <div>
+                    <Link to="/profile">
+                      <img
+                        src={image}
+                        alt=""
+                        className="w-[30px] h-[30px] rounded-full border-[3px] border-[#0eae88]"
+                      />
+                    </Link>
+                  </div>
+                ) : (
+                  <>
+                    <Link
+                      to="/login"
+                      className="text-[18px] pr-[10px] text-[#000000b7]"
+                    >
+                      Login /
+                    </Link>
+                    <Link
+                      to="/sign-up"
+                      className="text-[18px] text-[#000000b7]"
+                    >
+                      Sign up
+                    </Link>
+                  </>
+                )}
+              </div>
         </div>
 
         {/* header sidebar */}
@@ -302,7 +350,7 @@ const Header = ({ activeHeading }) => {
                   <div>
                     <Link to="/profile">
                       <img
-                        src={`${backend_url}${user.avatar}`}
+                        src={image}
                         alt=""
                         className="w-[60px] h-[60px] rounded-full border-[3px] border-[#0eae88]"
                       />
