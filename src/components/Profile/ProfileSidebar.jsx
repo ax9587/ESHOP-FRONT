@@ -12,11 +12,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { logout } from "../../redux/actions/user";
+import { useDispatch, useSelector } from "react-redux";
+
+
 
 const ProfileSidebar = ({ setActive, active }) => {
   const navigate = useNavigate();
-
-  const logoutHandler = () => {
+  const dispatch = useDispatch();
+  /* const logoutHandler = () => {
     axios
       .get(`${server}/user/logout`,{ withCredentials: true })
       .then((res) => {
@@ -28,7 +32,12 @@ const ProfileSidebar = ({ setActive, active }) => {
       .catch((error) => {
         console.log(error.response.data.message);
       });
+  }; */
+  const logoutHandler = () => {
+    logout(dispatch);
+    navigate("/");
   };
+
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
       <div

@@ -1,5 +1,36 @@
 import axios from "axios";
 import { server } from "../../server";
+//import { userReducer } from "../reducers/user";
+import { publicRequest } from "../../requestMethods";
+import { useResolvedPath } from "react-router-dom";
+import { useRef } from "react";
+//login
+export const login = async (dispatch, user) => {
+  //dispatch(userReducer.loginStart());
+  
+  try {
+    dispatch({
+      type: "loginStart",
+    });
+    const res = await publicRequest.post(`${server}/user/login-user`,user);
+    //dispatch(userReducer.loginSuccess(res.data));
+    dispatch({
+      type: "loginSuccess",
+      payload: res.data,
+    });
+  } catch (err) {
+    //dispatch(userReducer.loginFailure());
+    dispatch({
+      type: "loginFailure",
+    });
+  }
+};
+
+export const logout = async (dispatch) => {
+    dispatch({
+      type: "logout",
+    });
+};
 
 // load user
 export const loadUser = () => async (dispatch) => {
