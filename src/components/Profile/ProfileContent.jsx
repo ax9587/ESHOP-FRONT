@@ -24,6 +24,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { getAllOrdersOfUser } from "../../redux/actions/order";
 import { getImageRequest } from "../../requestMethods";
+import  CreatePost  from "./CreatePost";
 
 const ProfileContent = ({ active }) => {
   const { user, error, successMessage } = useSelector((state) => state.user);
@@ -171,6 +172,13 @@ const ProfileContent = ({ active }) => {
       {active === 3 && (
         <div>
           <AllRefundOrders />
+        </div>
+      )}
+
+      {/* Create Post */}
+      {active === 4 && (
+        <div>
+          <CreatePost />
         </div>
       )}
 
