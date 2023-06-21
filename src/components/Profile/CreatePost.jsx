@@ -20,6 +20,9 @@ const CreatePost = () => {
   const [originalPrice, setOriginalPrice] = useState();
   const [discountPrice, setDiscountPrice] = useState();
   const [stock, setStock] = useState();
+  const [image, setImage] = useState([]);
+
+  const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -34,28 +37,34 @@ const CreatePost = () => {
 
  
 
-  const handleImageChange = (e) => {
+  const handleImageChange =async  (e) => {
     e.preventDefault();
 
-    let promises = (Array.from(e.target.files)).map(async (f)=>{ return await convertToBase64(f)});
+   /*  let promises = (Array.from(e.target.files)).map(async (f)=>{ return await convertToBase64(f)});
     
     //console.log(promises);
     
 //simply iterate those
 //val will be the result of the promise not the promise itself
-const thefiles=[];
+const files=[];
 (async () => {
   for await (const val of promises) {
-    thefiles.push(val);
+    files.push(val);
     //setImages((prevImages) => [...prevImages, val]);
   }
 })();
 
-//console.log("files",thefiles);
+//console.log("files",files);
 
     //
-    setImages(thefiles);
-   // console.log("images",images);
+    setImages(files);
+    setRerender(!rerender);
+   // console.log("images",images); */
+
+   const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    //console.log(base64);
+    setImage(base64);
   };
 
   function convertToBase64(file){
@@ -75,21 +84,19 @@ const thefiles=[];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newForm = new FormData();
-
-    images.forEach((image) => {
-      newForm.append("images", image);
-    });
-    newForm.append("name", name);
-    newForm.append("description", description);
-    newForm.append("category", category);
-    newForm.append("tags", tags);
-    newForm.append("originalPrice", originalPrice);
-    newForm.append("discountPrice", discountPrice);
-    newForm.append("stock", stock);
-    newForm.append("shopId", user._id);
-    dispatch(createPost(newForm));
+    //console.log(user);
+    const post = {
+      name: name,
+      description: description,
+      category: category,
+      tags: tags,
+      originalPrice:originalPrice,
+      discountPrice:discountPrice,
+      stock:stock,
+      userId:user.user._id,
+      image:image
+    };
+    dispatch(createPost(post));
   };
 
   return (
@@ -216,7 +223,7 @@ const thefiles=[];
             <label htmlFor="upload">
               <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
             </label>
-            {images &&
+            {/* {images &&
               images.map((i) => (
                 <img
                   src={i}
@@ -224,7 +231,16 @@ const thefiles=[];
                   alt=""
                   className="h-[120px] w-[120px] object-cover m-2"
                 />
-              ))}
+              ))} */}
+              {image &&
+              
+                <img
+                  src={image}
+                  key={1}
+                  alt=""
+                  className="h-[120px] w-[120px] object-cover m-2"
+                />
+              }
           </div>
           <br />
           <div>

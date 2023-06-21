@@ -40,7 +40,19 @@ app
 CreatePost.jsx : 1. AS SignUp.jsx
 redux actions post
 redux reducers post
-redux store
+redux store 2. Posts
+2-1 Pages: (ProductsPage.jsx->PostsPage.jsx-> PostCard.jsx->PostDetailsCard.jsx )(/products)
 
+           (ProductDetailsPage.jsx->PostDetailsPage.jsx->PostDetailsCard.jsx)(/product/:id)
+
+2-2 components : ProductDetails.jsx->PostDetails.jsx
+
+2-3 Route /products -> /posts
+<Route path="/products" element={<ProductsPage />} />
+<Route path="/product/:id" element={<ProductDetailsPage />} />
+2-4 Nav data.js -> navItems -> /products-> Posts
+/routes/Routes.js
+2-5 App.js
+Store.dispatch(getAllPosts());
 Bug
 when server is not start, login, it shows login succecess.

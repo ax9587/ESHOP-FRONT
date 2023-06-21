@@ -7,6 +7,7 @@ import {
   ActivationPage,
   HomePage,
   ProductsPage,
+  PostsPage,
   BestSellingPage,
   EventsPage,
   FAQPage,
@@ -14,6 +15,7 @@ import {
   PaymentPage,
   OrderSuccessPage,
   ProductDetailsPage,
+  PostDetailsPage,
   ProfilePage,
   ShopCreatePage,
   SellerActivationPage,
@@ -45,6 +47,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import { ShopHomePage } from "./ShopRoutes.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute";
 import { getAllProducts } from "./redux/actions/product";
+import { getAllPosts } from "./redux/actions/post";
 import { getAllEvents } from "./redux/actions/event";
 import axios from "axios";
 import { server } from "./server";
@@ -62,6 +65,7 @@ const App = () => {
     //Store.dispatch(loadUser());
     //Store.dispatch(loadSeller());
     Store.dispatch(getAllProducts());
+    Store.dispatch(getAllPosts());
     Store.dispatch(getAllEvents());
     getStripeApikey();
   }, []);
@@ -95,7 +99,9 @@ const App = () => {
           element={<SellerActivationPage />}
         />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/posts" element={<PostsPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/post/:id" element={<PostDetailsPage />} />
         <Route path="/best-selling" element={<BestSellingPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/faq" element={<FAQPage />} />

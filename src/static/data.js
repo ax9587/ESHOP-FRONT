@@ -5,16 +5,8 @@ export const navItems = [
       url: "/",
     },
     {
-      title: "Best Selling",
-      url: "/best-selling",
-    },
-    {
-      title: "Products",
-      url: "/products",
-    },
-    {
-      title: "Events",
-      url: "/events",
+      title: "Posts",
+      url: "/posts",
     },
     {
       title: "FAQ",
