@@ -567,9 +567,6 @@ export const navItems = [
       link: "/carrers"
     },
     {
-      name: "Store Locations",
-    },
-    {
       name: "Our Blog",
     },
     {
@@ -578,18 +575,7 @@ export const navItems = [
   ];
   
   export const footercompanyLinks = [
-    {
-      name: "Game & Video",
-    },
-    {
-      name: "Phone &Tablets",
-    },
-    {
-      name: "Computers & Laptop",
-    },
-    {
-      name: "Sport Watches",
-    },
+  
     {
       name: "Events",
     },
@@ -604,9 +590,6 @@ export const navItems = [
     },
     {
       name: "Contact Us",
-    },
-    {
-      name: "Shipping",
     },
     {
       name: "Live chat",

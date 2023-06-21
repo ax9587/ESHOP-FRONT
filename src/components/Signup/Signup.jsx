@@ -34,6 +34,12 @@ const Singup = () => {
     })
   }
 
+
+
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 

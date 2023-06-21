@@ -117,13 +117,13 @@ const Header = ({ activeHeading }) => {
             ) : null}
           </div>
 
-          <div className={`${styles.button}`}>
+          {/* <div className={`${styles.button}`}>
             <Link to={`${isSeller ? '/dashboard' : '/shop-create'}`}>
               <h1 className="text-[#fff] flex items-center">
                {isSeller ? "Go Dashboard" : "Become Seller"}  <IoIosArrowForward className="ml-1" />
               </h1>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
       <div
@@ -174,7 +174,7 @@ const Header = ({ activeHeading }) => {
               </div>
             </div>
 
-            <div className={`${styles.noramlFlex}`}>
+            {/* <div className={`${styles.noramlFlex}`}>
               <div
                 className="relative cursor-pointer mr-[15px]"
                 onClick={() => setOpenCart(true)}
@@ -187,7 +187,7 @@ const Header = ({ activeHeading }) => {
                   {cart && cart.length}
                 </span>
               </div>
-            </div>
+            </div> */}
 
             <div className={`${styles.noramlFlex}`}>
               <div className="relative cursor-pointer mr-[15px]">
@@ -242,14 +242,14 @@ const Header = ({ activeHeading }) => {
               />
             </Link>
           </div>
-          <div>
+          {/* <div>
             <div className="relative mr-[20px]">
               <AiOutlineShoppingCart size={30} />
               <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
               {cart && cart.length}
               </span>
             </div>
-          </div>
+          </div> */}
           <div className="relative mr-[20px]">
                 {isAuthenticated ? (
                   <div>
@@ -334,13 +334,13 @@ const Header = ({ activeHeading }) => {
               </div>
 
               <Navbar active={activeHeading} />
-              <div className={`${styles.button} ml-4 !rounded-[4px]`}>
+             {/*  <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
                     Become Seller <IoIosArrowForward className="ml-1" />
                   </h1>
                 </Link>
-              </div>
+              </div> */}
               <br />
               <br />
               <br />

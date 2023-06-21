@@ -1,3 +1,6 @@
+How to upload image in React js Mongo db and node. Display image from Mongo. Convert image to Base64
+https://youtu.be/YH63fnqG7F0
+
 1. npm i --legacy-peer-deps
 2. Vercel
    1-vercel.json
@@ -27,3 +30,17 @@ https://codevoweb.com/google-oauth-authentication-react-and-node/
 I.Category
 categories.js data.js
 <img src="/image.jpg" alt="image" />(Public Folder)
+II. Change from Product to Post
+1.Create a post
+1-1 Backend
+model->product->post
+controller->product->post
+app
+1-2 FrontEnd
+CreatePost.jsx : 1. AS SignUp.jsx
+redux actions post
+redux reducers post
+redux store
+
+Bug
+when server is not start, login, it shows login succecess.

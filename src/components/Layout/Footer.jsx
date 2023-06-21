@@ -36,13 +36,16 @@ const Footer = () => {
       </div>
       <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-          <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+          {/* <img
+            src="/logo.png"
             alt=""
             style={{ filter: "brightness(0) invert(1)" }}
-          />
+          /> */}
+           <h2 className="lg:text-xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
+          Calgary101
+          </h2>
           <br />
-          <p>The home and elements needeed to create beatiful products.</p>
+          <p>The Heart of the West</p>
           <div className="flex items-center mt-[15px]">
             <AiFillFacebook size={25} className="cursor-pointer" />
             <AiOutlineTwitter
@@ -76,7 +79,7 @@ const Footer = () => {
         </ul>
 
         <ul className="text-center sm:text-start">
-          <h1 className="mb-1 font-semibold">Shop</h1>
+          <h1 className="mb-1 font-semibold">Events</h1>
           {footercompanyLinks.map((link,index) => (
             <li key={index}>
               <Link
@@ -112,12 +115,12 @@ const Footer = () => {
       >
         <span>© 2023. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
-        <div className="sm:block flex items-center justify-center w-full">
+        {/* <div className="sm:block flex items-center justify-center w-full">
           <img
             src="https://hamart-shop.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffooter-payment.a37c49ac.png&w=640&q=75"
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
