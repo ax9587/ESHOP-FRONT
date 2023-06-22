@@ -18,7 +18,7 @@ export const login = async (dispatch, user) => {
       type: "loginSuccess",
       payload: res.data,
     });
-  } catch (err) {
+  } catch (error) {
     //dispatch(userReducer.loginFailure());
     dispatch({
       type: "loginFailure",
