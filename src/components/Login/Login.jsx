@@ -47,7 +47,7 @@ const Login = () => {
         navigate("/");
         }else{
           console.log(error);
-          toast.error("Network error");
+          toast.error("Login Error");
         }
         //window.location.reload(true);
       }
