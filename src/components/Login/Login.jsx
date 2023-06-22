@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +16,19 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-  const { error  } = useSelector((state) => state.user);
+  const { success,error  } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (error) {
+      //toast.error(error);
+      toast.error("Login failed");
+    }
+    if (success) {
+      toast.success("Login Success!");
+      navigate("/");
+      //window.location.reload();
+    }
+  }, [dispatch, error, success]);
  
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,11 +52,12 @@ const Login = () => {
         //toast.error(err.response.data.message);
         toast.error(err);
       }); */
-      try{
+     /*  try{
         login(dispatch, { email, password });
         if( !error ){
         toast.success("Login Success!");
         navigate("/");
+        window.location.reload(true);
         }else{
           console.log(error);
           toast.error("Login Error");
@@ -53,7 +66,8 @@ const Login = () => {
       }
       catch(error){
         toast.error(error);
-      }
+      } */
+      login(dispatch, { email, password });
   };
 
   return (
