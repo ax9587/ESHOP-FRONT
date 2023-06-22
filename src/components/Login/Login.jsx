@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-  
+  const { error  } = useSelector((state) => state.user);
  
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +42,6 @@ const Login = () => {
       }); */
       try{
         login(dispatch, { email, password });
-        const { error  } = useSelector((state) => state.user);
         if( !error ){
         toast.success("Login Success!");
         navigate("/");
