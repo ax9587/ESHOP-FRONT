@@ -13,6 +13,8 @@ const PostsPage = () => {
   const {allPosts,isLoading} = useSelector((state) => state.posts);
   const [data, setData] = useState([]);
 
+  //console.log(allPosts);
+
   useEffect(() => {
     if (categoryData === null) {
       const d = allPosts;

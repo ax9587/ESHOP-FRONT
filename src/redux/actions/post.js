@@ -79,6 +79,7 @@ export const getAllPosts = () => async (dispatch) => {
     });
 
     const { data } = await axios.get(`${server}/post/get-all-posts`);
+    console.log(JSON.stringify(data));
     dispatch({
       type: "getAllPostsSuccess",
       payload: data.posts,
@@ -91,3 +92,5 @@ export const getAllPosts = () => async (dispatch) => {
     });
   }
 };
+
+
